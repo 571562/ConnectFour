@@ -49,6 +49,6 @@ public class Board {
     }
 
     public void dropX() {
-
+        System.out.println("Hei");
     }
 }
