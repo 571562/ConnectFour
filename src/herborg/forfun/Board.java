@@ -73,4 +73,27 @@ public class Board {
             }
         }
     }
+
+    public void dropO(int column) {
+        int counter = 1;
+
+        System.out.println("Player o.");
+
+        while(true) {
+            if(board[BOTTOM_ROW][column] == '-') {
+                board[BOTTOM_ROW][column] = 'o';
+                break;
+            } else if (board[BOTTOM_ROW][column] == 'o' || board[BOTTOM_ROW][column] =='x') {
+                if(board[BOTTOM_ROW - counter][column] == '-') {
+                    board[BOTTOM_ROW - counter][column] = 'o';
+                    break;
+                }
+            }
+            counter++;
+            if(counter == ROW) {
+                System.out.println("Column is full.");
+                break;
+            }
+        }
+    }
 }

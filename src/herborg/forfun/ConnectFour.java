@@ -15,13 +15,13 @@ public class ConnectFour {
 
     public static void playGame() {
         Board board = new Board();
+        System.out.println("Welcome to Connect Four!");
         board.printBoard();
+        System.out.println("X is player 1.");
         int col = scan.nextInt() - 1;
         board.dropX(col);
         board.printBoard();
 
 
-        System.out.println("Jokub er søt");
-        System.out.println("Herborg ekkje so verst heller");
     }
 }
