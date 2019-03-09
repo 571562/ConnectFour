@@ -20,5 +20,8 @@ public class ConnectFour {
         board.dropX(col);
         board.printBoard();
 
+
+        System.out.println("Jokub er søt");
+
     }
 }
