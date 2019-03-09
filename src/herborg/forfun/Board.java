@@ -9,19 +9,22 @@ public class Board {
 
     private char[][] board;
     private char playerMark;
+    private final static int COLUMN = 6;
+    private final static int ROW = 6;
+    private final static int BOTTOM_ROW = 5;
 
     private static Scanner scan;
 
 
     public Board () {
-        board = new char[6][6];
+        board = new char[ROW][COLUMN];
         playerMark = 'x';
         makeBoard();
     }
 
     public void makeBoard() {
-        for(int i = 0; i < 6; i++) {
-            for(int j = 0; j < 6; j++) {
+        for(int i = 0; i < COLUMN; i++) {
+            for(int j = 0; j < ROW; j++) {
                 board[i][j] = '-';
             }
         }
@@ -30,9 +33,9 @@ public class Board {
     public void printBoard() {
         System.out.println("-------------------------");
 
-        for(int i = 0; i < 6; i++) {
+        for(int i = 0; i < COLUMN; i++) {
             System.out.print("| ");
-            for(int j = 0; j < 6; j++) {
+            for(int j = 0; j < ROW; j++) {
                 System.out.print(board[i][j] + " | ");
             }
             System.out.println();
@@ -48,7 +51,26 @@ public class Board {
         }
     }
 
-    public void dropX() {
-        System.out.println("Hei");
+    public void dropX(int column) {
+        int counter = 1;
+
+        System.out.println("Player x.");
+
+        while(true) {
+            if(board[BOTTOM_ROW][column] == '-') {
+                board[BOTTOM_ROW][column] = 'x';
+                break;
+            } else if (board[BOTTOM_ROW][column] == 'x' || board[BOTTOM_ROW][column] =='o') {
+                if(board[BOTTOM_ROW - counter][column] == '-') {
+                    board[BOTTOM_ROW - counter][column] = 'x';
+                    break;
+                }
+            }
+            counter++;
+            if(counter == ROW) {
+                System.out.println("Column is full.");
+                break;
+            }
+        }
     }
 }

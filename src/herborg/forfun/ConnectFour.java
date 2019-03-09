@@ -16,9 +16,8 @@ public class ConnectFour {
     public static void playGame() {
         Board board = new Board();
         board.printBoard();
-        int row = scan.nextInt() - 1;
         int col = scan.nextInt() - 1;
-        board.placeMark(row,col);
+        board.dropX(col);
         board.printBoard();
 
     }
