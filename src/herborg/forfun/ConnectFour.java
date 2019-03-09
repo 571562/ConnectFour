@@ -17,10 +17,21 @@ public class ConnectFour {
         Board board = new Board();
         System.out.println("Welcome to Connect Four!");
         board.printBoard();
-        System.out.println("X is player 1.");
-        int col = scan.nextInt() - 1;
-        board.dropX(col);
-        board.printBoard();
+
+        while (!board.boardFull()) {
+
+            System.out.println("Type in the column.");
+            int col = scan.nextInt() - 1;
+            board.dropX(col);
+            board.printBoard();
+            System.out.println("-------------------");
+            System.out.println("Type in the column.");
+            col = scan.nextInt() - 1;
+            board.dropO(col);
+            board.printBoard();
+
+
+        }
 
 
     }

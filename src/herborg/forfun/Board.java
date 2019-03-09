@@ -43,19 +43,9 @@ public class Board {
             System.out.println("-------------------------");
     }
 
-    public void placeMark(int row, int col) {
-        if((row >= 0) && (row < 6)) {
-            if((col >= 0) && (col < 6)) {
-                board[row][col] = playerMark;
-            }
-        }
-    }
-
     public void dropX(int column) {
         int counter = 1;
-
-        System.out.println("Player x.");
-
+        
         while(true) {
             if(board[BOTTOM_ROW][column] == '-') {
                 board[BOTTOM_ROW][column] = 'x';
@@ -77,8 +67,6 @@ public class Board {
     public void dropO(int column) {
         int counter = 1;
 
-        System.out.println("Player o.");
-
         while(true) {
             if(board[BOTTOM_ROW][column] == '-') {
                 board[BOTTOM_ROW][column] = 'o';
@@ -95,5 +83,18 @@ public class Board {
                 break;
             }
         }
+    }
+
+    public boolean boardFull() {
+        boolean boardFull = true;
+        for(int i = 0; i < ROW; i++) {
+            for(int j = 0; j < COLUMN; j++) {
+                if(board[i][j] == '-'){
+                    boardFull = false;
+                }
+            }
+        }
+
+        return boardFull;
     }
 }
