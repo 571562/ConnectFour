@@ -22,6 +22,6 @@ public class ConnectFour {
 
 
         System.out.println("Jokub er søt");
-
+        System.out.println("Herborg ekkje so verst heller");
     }
 }
