@@ -17,19 +17,19 @@ public class ConnectFour {
         Board board = new Board();
         System.out.println("Welcome to Connect Four!");
         board.printBoard();
+        boolean play = true;
 
-        while (!board.boardFull()) {
+        while (play) {
 
             System.out.println("Type in the column.");
             int col = scan.nextInt() - 1;
             board.dropX(col);
+            board.checkXRows();
             board.printBoard();
-            System.out.println("-------------------");
             System.out.println("Type in the column.");
             col = scan.nextInt() - 1;
             board.dropO(col);
             board.printBoard();
-
 
         }
 

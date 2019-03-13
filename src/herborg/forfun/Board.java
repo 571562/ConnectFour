@@ -97,4 +97,28 @@ public class Board {
 
         return boardFull;
     }
+
+    public boolean checkXRows() {
+        int counter = 0;
+        boolean flag = true;
+        while (flag) {
+            for (int i = 0; i < ROW; i++) {
+                for (int j = 0; j < COLUMN; j++) {
+                    if (board[i][j] == 'x') {
+                        counter++;
+                    } else {
+                        counter = 0;
+                    }
+                    if (counter >= 4) {
+                        System.out.println("Player x won the game!");
+                        flag = false;
+                    }
+                }
+            }
+
+            break;
+        }
+
+        return flag;
+    }
 }
