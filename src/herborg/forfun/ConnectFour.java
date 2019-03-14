@@ -24,7 +24,10 @@ public class ConnectFour {
             System.out.println("Type in the column.");
             int col = scan.nextInt() - 1;
             board.dropX(col);
-            board.checkXRows();
+            if(!board.checkXRows()) {
+                board.printBoard();
+                break;
+            }
             board.printBoard();
             System.out.println("Type in the column.");
             col = scan.nextInt() - 1;
